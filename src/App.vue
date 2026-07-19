@@ -30,6 +30,9 @@
         <button class="dock-btn" @click="toggleLanguage" :title="locale === 'uk' ? 'Switch to English' : 'Перемкнути на українську'">
           🌐
         </button>
+        <button class="dock-btn" @click="showApiModal = true" title="API Key Settings">
+          🔑
+        </button>
         <button v-if="step > 1" class="dock-btn" @click="resetAll" :title="t('newReading')">
           ↺
         </button>
@@ -308,7 +311,7 @@ const readingText  = ref("");
 const readingError = ref(null);
 const isStreaming  = ref(false);
 const showApiModal = ref(false);
-const apiKeyInput  = ref("");
+const apiKeyInput  = ref(localStorage.getItem("GEMINI_API_KEY") || "");
 
 // Focused card index during zoomed readthrough
 // -1 = Intro slide, -2 = Guidance slide, null = not active
@@ -580,7 +583,6 @@ function saveApiKey() {
   localStorage.setItem("GEMINI_API_KEY", apiKeyInput.value.trim());
   resetApiBackoff();
   showApiModal.value = false;
-  getReading();
 }
 
 function resetAll() {
