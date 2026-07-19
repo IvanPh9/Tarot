@@ -90,6 +90,12 @@ const cardSub = computed(() => {
 .card:hover { transform: translateY(-10px); }
 
 @media (min-width: 640px) { .card { width: 140px; } }
+@media (max-width: 480px) { 
+  .card { width: 70px; gap: 0.2rem; }
+  .card__name { font-size: 0.5rem; }
+  .card__sub { font-size: 0.4rem; }
+  .card:hover { transform: translateY(-5px); }
+}
 
 .card__inner {
   width: 100%; aspect-ratio: 2 / 3.4;

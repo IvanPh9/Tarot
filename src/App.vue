@@ -821,12 +821,12 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   background: #080310;
   color: #ede9fe;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
 .app {
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   overflow: hidden;
 }
@@ -946,13 +946,13 @@ body {
   position: relative; z-index: 2;
   display: flex;
   align-items: stretch;
-  height: 100vh;
+  height: 100dvh;
   padding: 1.5rem;
 }
 @media (max-width: 1024px) {
   .app__workspace {
     flex-direction: column;
-    height: auto; min-height: 100vh;
+    height: auto; min-height: 100dvh;
     overflow-y: auto; padding: 1rem; gap: 1rem;
   }
 }
@@ -969,6 +969,14 @@ body {
   gap: 0.85rem;
   z-index: 10;
   pointer-events: none;
+}
+@media (max-width: 1024px) {
+  .branding-container {
+    position: relative;
+    top: 0; left: 0;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
 }
 .branding-logo {
   font-size: 2.3rem;
