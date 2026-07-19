@@ -952,8 +952,7 @@ body {
 @media (max-width: 1024px) {
   .app__workspace {
     flex-direction: column;
-    height: auto; min-height: 100dvh;
-    overflow-y: auto; padding: 1rem; gap: 1rem;
+    padding: 0; gap: 0;
   }
 }
 
@@ -972,10 +971,11 @@ body {
 }
 @media (max-width: 1024px) {
   .branding-container {
-    position: relative;
-    top: 0; left: 0;
-    justify-content: center;
-    margin-top: 0.5rem;
+    top: 0.75rem; left: 0.75rem;
+    transform: scale(0.65);
+    transform-origin: top left;
+    margin-top: 0;
+    z-index: 50;
   }
 }
 .branding-logo {
@@ -1022,13 +1022,28 @@ body {
 }
 @media (max-width: 1024px) {
   .liquid-dock {
-    position: static;
-    transform: none;
+    position: absolute;
     flex-direction: row;
-    justify-content: center;
+    transform: none;
+    margin: 0;
     border-radius: 100px;
-    width: fit-content;
-    margin: 0.5rem auto;
+    z-index: 50;
+    padding: 0.4rem;
+  }
+  .liquid-dock--left {
+    top: 0.75rem;
+    right: 0.75rem;
+    left: auto;
+    bottom: auto;
+    transform: scale(0.85);
+    transform-origin: top right;
+  }
+  .liquid-dock--right {
+    top: auto;
+    bottom: 1.5rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) scale(0.95);
   }
 }
 
@@ -1150,8 +1165,9 @@ body {
 }
 @media (max-width: 1024px) {
   .tarot-table {
-    margin-left: 0; margin-right: 0;
-    min-height: 480px;
+    margin: 0;
+    border-radius: 0;
+    border: none;
   }
 }
 
@@ -1159,6 +1175,12 @@ body {
 .setup-container {
   max-width: 600px; width: 100%; padding: 2rem;
   display: flex; flex-direction: column; gap: 1.25rem;
+}
+@media (max-width: 1024px) {
+  .setup-container {
+    padding: 1rem;
+    padding-top: 4.5rem;
+  }
 }
 .setup-header { text-align: center; }
 .setup-header h2 { font-family: 'Cinzel', serif; font-size: 1.5rem; color: #ede9fe; margin-bottom: 0.25rem; }
