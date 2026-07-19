@@ -9,7 +9,7 @@
     <div class="card__inner">
       <!-- ── BACK ── -->
       <div class="card__back">
-        <img src="/cards/CardBacks.png" alt="Card back" class="card__back-img" />
+        <img :src="baseUrl + 'cards/CardBacks.png'" alt="Card back" class="card__back-img" />
       </div>
 
       <!-- ── FRONT ── -->
@@ -47,6 +47,8 @@
 
 <script setup>
 import { ref, computed } from "vue";
+
+const baseUrl = import.meta.env.BASE_URL;
 
 const props = defineProps({
   card: { type: Object, default: null },

@@ -2,30 +2,32 @@
 // Local Rider-Waite-Smith card images (public/cards/)
 // ============================================================
 
+const baseUrl = import.meta.env.BASE_URL;
+
 // ── Major Arcana image map ─────────────────────────────────────────────────
 const MAJOR_IMGS = [
-  "/cards/00-TheFool.png",
-  "/cards/01-TheMagician.png",
-  "/cards/02-TheHighPriestess.png",
-  "/cards/03-TheEmpress.png",
-  "/cards/04-TheEmperor.png",
-  "/cards/05-TheHierophant.png",
-  "/cards/06-TheLovers.png",
-  "/cards/07-TheChariot.png",
-  "/cards/08-Strength.png",
-  "/cards/09-TheHermit.png",
-  "/cards/10-WheelOfFortune.png",
-  "/cards/11-Justice.png",
-  "/cards/12-TheHangedMan.png",
-  "/cards/13-Death.png",
-  "/cards/14-Temperance.png",
-  "/cards/15-TheDevil.png",
-  "/cards/16-TheTower.png",
-  "/cards/17-TheStar.png",
-  "/cards/18-TheMoon.png",
-  "/cards/19-TheSun.png",
-  "/cards/20-Judgement.png",
-  "/cards/21-TheWorld.png",
+  `${baseUrl}cards/00-TheFool.png`,
+  `${baseUrl}cards/01-TheMagician.png`,
+  `${baseUrl}cards/02-TheHighPriestess.png`,
+  `${baseUrl}cards/03-TheEmpress.png`,
+  `${baseUrl}cards/04-TheEmperor.png`,
+  `${baseUrl}cards/05-TheHierophant.png`,
+  `${baseUrl}cards/06-TheLovers.png`,
+  `${baseUrl}cards/07-TheChariot.png`,
+  `${baseUrl}cards/08-Strength.png`,
+  `${baseUrl}cards/09-TheHermit.png`,
+  `${baseUrl}cards/10-WheelOfFortune.png`,
+  `${baseUrl}cards/11-Justice.png`,
+  `${baseUrl}cards/12-TheHangedMan.png`,
+  `${baseUrl}cards/13-Death.png`,
+  `${baseUrl}cards/14-Temperance.png`,
+  `${baseUrl}cards/15-TheDevil.png`,
+  `${baseUrl}cards/16-TheTower.png`,
+  `${baseUrl}cards/17-TheStar.png`,
+  `${baseUrl}cards/18-TheMoon.png`,
+  `${baseUrl}cards/19-TheSun.png`,
+  `${baseUrl}cards/20-Judgement.png`,
+  `${baseUrl}cards/21-TheWorld.png`,
 ];
 
 // ── Minor Arcana image map ─────────────────────────────────────────────────
@@ -41,7 +43,7 @@ const SUIT_FILENAMES = {
 };
 
 function minorImg(suit, rankIndex) {
-  return `/cards/${SUIT_FILENAMES[suit][rankIndex]}.png`;
+  return `${baseUrl}cards/${SUIT_FILENAMES[suit][rankIndex]}.png`;
 }
 
 // ============================================================

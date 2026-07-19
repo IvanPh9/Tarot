@@ -274,8 +274,17 @@ async function runPollinationsTarotReading({ sessionType, cards, question, posit
   
   const systemPrompt = `You are a mystical, storytelling Tarot Reader. Provide a cohesive, narrative-driven tarot reading. Tell a captivating story that weaves the cards together into a unified journey. Respond only with a JSON object containing these keys: introduction, interpretations, guidance, and clarificationQuestions. interpretations is an array of objects. Each object has keys: cardId, cardName, position, text. clarificationQuestions is an array of strings.`;
 
-  const url = `https://text.pollinations.ai/${encodeURIComponent(promptText)}?system=${encodeURIComponent(systemPrompt)}&jsonMode=true`;
-  const response = await fetch(url);
+  const response = await fetch('https://text.pollinations.ai/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: promptText }
+      ],
+      jsonMode: true
+    })
+  });
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -308,8 +317,17 @@ async function runPollinationsQuestionnaire({ question, lang }) {
   const systemPrompt = `You are a mystical Tarot Advisor. You generate pre-session questionnaires. Respond only with a raw JSON array containing exactly two objects. Each object has a key named questionText and a key named options containing exactly 4 text options.
 ${languageInstruction}`;
 
-  const url = `https://text.pollinations.ai/${encodeURIComponent(promptText)}?system=${encodeURIComponent(systemPrompt)}&jsonMode=true`;
-  const response = await fetch(url);
+  const response = await fetch('https://text.pollinations.ai/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: promptText }
+      ],
+      jsonMode: true
+    })
+  });
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}`);
   }

@@ -260,6 +260,9 @@ import { streamTarotReading, generateQuestionnaire, resetApiBackoff } from "./ge
 import { translations } from "./translations.js";
 import TarotCard from "./components/TarotCard.vue";
 
+const baseUrl = import.meta.env.BASE_URL;
+const tableClothBg = `url('${baseUrl}tablecloth.jpg')`;
+
 const questionnaire = ref(null);
 const selectedOptions = ref([null, null]);
 const isGeneratingQuestionnaire = ref(false);
@@ -831,7 +834,7 @@ body {
 ══════════════════════════════════════════════════════════════ */
 .table-cloth {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image: url('/tablecloth.jpg');
+  background-image: v-bind(tableClothBg);
   background-size: cover;
   background-position: center;
   background-color: #110624;
